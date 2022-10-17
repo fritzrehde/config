@@ -1,0 +1,32 @@
+# settings
+set guioptions none
+set selection-clipboard clipboard
+
+# colors
+set statusbar-bg "#2e3440"
+set statusbar-fg "#d8dee9"
+
+# bindings
+map r reload
+# TODO: disable bspwm zathura rule temporarily
+map y exec 'zathura "%"'
+
+## gui
+map m toggle_statusbar
+map f toggle_fullscreen
+
+## navigation
+map z snap_to_page
+map = zoom in
+
+### jumping
+map j navigate next
+map k navigate previous
+
+### scrolling
+map Down scroll down
+map Up scroll up
+map H scroll left
+map J scroll down
+map K scroll up
+map L scroll right

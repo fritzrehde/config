@@ -4,7 +4,7 @@
 ## Installation
 
 This configuration can be installed by linking the config files to the default config file locations for all apps.
-`./install.sh` and `./uninstall.sh` 
+Use `./install.sh` and `./uninstall.sh` .
 
 ## Featured applications
 Name | Description | Config files
@@ -34,6 +34,3 @@ Dotfiles are hidden files or directories which have names that start with a dot/
 This repository contains my personal dotfiles.
 They are stored here for convenience so that I can quickly access them on new machines.
 Also, others may find some of my configurations helpful in customising their own dotfiles.
-
-## How to store dotfiles in a git repository
-Here is the article that I used to set up this [git repository](https://www.atlassian.com/git/tutorials/dotfiles)
