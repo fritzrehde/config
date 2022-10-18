@@ -4,7 +4,7 @@
 ## Installation
 
 This configuration can be installed by linking the config files to the default config file locations for all apps.
-Use `./install.sh` and `./uninstall.sh` .
+Use `./.install.sh` and `./.uninstall.sh` .
 
 ## Featured applications
 Name | Description | Config files

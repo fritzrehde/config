@@ -1,9 +1,8 @@
-source ~/.config/nvim/statusline.vim
-
 " UI
 set nocompatible
 syntax enable
 colorscheme nord
+source ~/.config/nvim/statusline.vim
 set termguicolors
 set number relativenumber
 set noshowcmd
