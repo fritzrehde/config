@@ -4,10 +4,12 @@ lightgrey = "#616E88"
 white = "#ffffff"
 offwhite = "#d8dee9"
 green = "#AEC694"
+darkgreen = "#1d8253"
 lime = "#92d64a"
 red = "#bf616a"
 red2 = "#e10600"
 blue = "#8FAAC9"
+darkblue = "#1669c9"
 purple = "#B48EAD"
 
 # webpage
@@ -55,7 +57,8 @@ c.colors.statusbar.insert.bg = lime
 c.colors.statusbar.passthrough.fg = darkgrey
 c.colors.statusbar.passthrough.bg = lightgrey
 c.colors.statusbar.url.fg = darkgrey
-c.colors.statusbar.url.success.https.fg = lime
+c.colors.statusbar.url.hover.fg = darkblue
+c.colors.statusbar.url.success.https.fg = darkgreen
 
 ## private mode
 c.colors.statusbar.private.bg = purple
@@ -64,8 +67,6 @@ c.colors.statusbar.command.private.bg = purple
 c.colors.statusbar.command.private.fg = offwhite
 # c.colors.statusbar.insert.private.bg = lime
 # c.colors.statusbar.insert.fg = darkgrey
-c.colors.statusbar.url.fg = offwhite
-c.colors.statusbar.url.success.https.fg = lime
 
 # download bar
 c.colors.downloads.bar.bg = darkgrey

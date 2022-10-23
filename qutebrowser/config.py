@@ -35,7 +35,7 @@ c.statusbar.widgets = ['url', 'scroll', 'progress']
 ## search engines
 config.source('search_engines.py')
 c.url.searchengines['gh'] = 'https://github.com/search?q={}'
-c.url.searchengines['github'] = 'https://github.com/fritzrehde/{}'
+c.url.searchengines['ghf'] = 'https://github.com/fritzrehde/{}'
 c.url.searchengines['yt'] = 'https://youtube.com/search?q={}'
 c.url.searchengines['go'] = 'https://google.com/search?q={}'
 c.url.searchengines['amaz'] = 'https://amazon.de/s?k={}'

@@ -3,7 +3,6 @@ alias z="source ~/.zshrc"
 alias c="clear"
 alias ct="clear; exa --tree"
 alias ..="cd .."
-alias update='notify.sh "sudo pacman -Syu --noconfirm"'
 alias update-yay='notify.sh "yay -Syu"'
 alias yy="fc -ln -1 | tr -d '\n' | xclip -selection clipboard -i"
 alias open="xdg-open"
