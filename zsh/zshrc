@@ -3,9 +3,11 @@ alias z="source ~/.zshrc"
 alias c="clear"
 alias ct="clear; exa --tree"
 alias ..="cd .."
+alias update='notify.sh "sudo pacman -Syu --noconfirm"'
 alias update-yay='notify.sh "yay -Syu"'
 alias yy="fc -ln -1 | tr -d '\n' | xclip -selection clipboard -i"
 alias open="xdg-open"
+alias jo="joshuto"
 
 ## git
 alias gp='git pull'
@@ -22,7 +24,13 @@ alias new='new-script.sh'
 #-------------------------------------------------------------------------------
 
 # Functions --------------------------------------------------------------------
-function gc() { git clone -q "$1"; cd $(basename "$1" | sed -e 's/.git//g'); clear; exa --tree ;}
+function gc() {
+	if git clone -q "$1"; then
+		cd $(basename "$1" | sed -e 's/.git//g')
+		clear
+		exa --tree
+	fi
+}
 #-------------------------------------------------------------------------------
 
 # Prompt -----------------------------------------------------------------------
