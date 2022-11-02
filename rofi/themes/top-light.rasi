@@ -21,6 +21,7 @@ configuration {
   fg-prompt: @grey;
   bg-prompt: @yellow;
 
+  fg-selected: @grey;
   bg-selected: @blue;
 
   text-color: @fg;
@@ -65,7 +66,7 @@ listview {
 }
 
 element {
-  text-color: @fg-alt;
+  text-color: @fg-selected;
   padding: 2 0 1 5;
 }
 

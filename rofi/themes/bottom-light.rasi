@@ -18,6 +18,7 @@ configuration {
   fg-prompt: @grey;
   bg-prompt: @yellow;
 
+  fg-selected: @grey;
   bg-selected: @blue;
 
   background-color: @bg-inputbar;
@@ -63,7 +64,7 @@ listview {
 }
 
 element {
-  text-color: @bg-prompt;
+  text-color: @fg-selected;
   padding: 1 5 0 5;
 }
 
