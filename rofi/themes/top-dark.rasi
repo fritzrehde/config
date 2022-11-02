@@ -6,14 +6,24 @@ configuration {
 }
 
 * {
-  bg: #d8dee9;
-  bg-alt: #81a1c1;
+  white: #d8dee9;
+  black: #000000;
+  grey: #2e3440;
+  blue: #81a1c1;
+  yellow: #ebcb8b;
 
-  fg: #000000;
-  fg-alt: #787C8F;
+  fg: @white;
+  bg: @black;
 
-  background-color: @bg;
+  bg-inputbar: @black;
+
+  fg-prompt: @grey;
+  bg-prompt: @yellow;
+
+  bg-selected: @blue;
+
   text-color: @fg;
+  background-color: @bg;
   blink: false;
   
   border: 0;
@@ -28,7 +38,7 @@ window {
 }
 
 mainbox {
-  background-color: @bg;
+  background-color: @bg-inputbar;
   children: [inputbar, listview];
 }
 
@@ -37,12 +47,13 @@ inputbar {
 }
 
 prompt {
-  background-color: @fg-alt;
-  padding: 1 5 0 5;
+  text-color: @fg-prompt;
+  background-color: @bg-prompt;
+  padding: 2 5 1 5;
 }
 
 entry {
-  padding: 1 0 0 5;
+  padding: 2 0 1 5;
 }
 
 listview {
@@ -54,12 +65,12 @@ listview {
 
 element {
   text-color: @fg-alt;
-  padding: 1 5 0 5;
+  padding: 2 0 1 5;
 }
 
 element selected {
   text-color: @fg;
-  background-color: @bg-alt;
+  background-color: @bg-selected;
 }
 
 element-text {

@@ -6,9 +6,9 @@ alt + Return
 alt + BackSpace
 	qutebrowser
 
-# reload sxhkd
+# reload polybar
 alt + r
-	sxhkd-reload.sh
+	polybar.sh
 
 # reload bspwm
 alt + shift + {q,r}
@@ -76,8 +76,8 @@ alt + {_, shift + }y
 	mpv.sh {focus, stay}
 
 # close dunst notification
-alt + w
-	dunstctl close-all
+alt + {_, shift + }w
+	dunstctl {close, close-all}
 
 # volume control
 # alt + {k, j, m}
@@ -122,10 +122,14 @@ alt + v
 	# ~/.scripts/keybind.sh "super+k" "tmux next-window"
 super + q
 	tmux-kill-session.sh
+super + s
+	tmux-new-session.sh
 super + a ; m
-	tmux command-prompt -p "man" "new-window -a \"man %1\""
+	man.sh
 super + a ; r
 	tmux source-file ~/.config/tmux/tmux.conf; tmux display-message -d 150 "tmux reloaded"
+super + a ; slash
+	fzf-find.sh
 super + a ; n
 	tmux display-popup -w 70% -h 60% -E "fzf-nvim.sh"
 super + a ; N

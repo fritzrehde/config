@@ -50,6 +50,7 @@ let g:nord_cursor_line_number_background=1
 " recommended styles
 let g:rust_recommended_style=0
 
+autocmd BufNewFile,BufRead *.cron :set filetype=crontab
 " autocmd BufWritePost *.tex !make
 
 
@@ -103,6 +104,11 @@ endfunction
 "=== Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
 Plug 'tpope/vim-commentary'
 autocmd FileType c setlocal commentstring=\/\/\ %s
 
@@ -112,8 +118,5 @@ let g:indent_blankline_show_trailing_blankline_indent = v:false
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-autocmd FileType markdown let b:coc_suggest_disable = 1
 
 call plug#end()

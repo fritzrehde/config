@@ -38,6 +38,7 @@ c.url.searchengines['gh'] = 'https://github.com/search?q={}'
 c.url.searchengines['ghf'] = 'https://github.com/fritzrehde/{}'
 c.url.searchengines['yt'] = 'https://youtube.com/search?q={}'
 c.url.searchengines['go'] = 'https://google.com/search?q={}'
+c.url.searchengines['maps'] = 'https://www.google.com/maps/search/?api=1&query={}'
 c.url.searchengines['amaz'] = 'https://amazon.de/s?k={}'
 # c.url.searchengines['rs'] = 'https://doc.rust-lang.org/search?q={}'
 
@@ -81,6 +82,7 @@ config.bind('<Meta-b>', 'set-cmd-text -s :quickmark-load -t')
 config.bind('x', 'tab-close')
 config.bind('w', 'tab-give')
 config.bind('t', 'selection-follow --tab')
+# config.bind('vt', 'tab-give')
 
 ## yank
 config.bind('yy', 'yank --quiet url')

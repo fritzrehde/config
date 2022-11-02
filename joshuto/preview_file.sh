@@ -223,8 +223,9 @@ handle_mime() {
         image/*)
             ## Preview as text conversion
             # img2txt --gamma=0.6 --width="${PREVIEW_WIDTH}" -- "${FILE_PATH}" && exit 4
-            exiftool "${FILE_PATH}" && exit 5
-            exit 1;;
+            # exiftool "${FILE_PATH}" && exit 5
+						exit 5;;
+            # exit 1;;
 
         ## Video and audio
         ##  video/* | audio/*)
@@ -239,6 +240,9 @@ handle_fallback() {
     exit 1
 }
 
+if [[ "${PREVIEW_IMAGE_ENABLED}" -eq 1 ]]; then
+	handle_image "${MIMETYPE}"
+fi
 
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 handle_extension
