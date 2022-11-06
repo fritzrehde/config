@@ -208,8 +208,7 @@ handle_mime() {
 
         ## Text
         text/* | */xml)
-						bat --color=always --paging=never --style=plain "${FILE_PATH}" && exit 5
-            # bat.sh --terminal-width="${PREVIEW_WIDTH}" "${FILE_PATH}" && exit 5
+						bat "${FILE_PATH}" && exit 5
             exit 2;;
 
         ## DjVu
@@ -240,9 +239,9 @@ handle_fallback() {
     exit 1
 }
 
-if [[ "${PREVIEW_IMAGE_ENABLED}" -eq 1 ]]; then
-	handle_image "${MIMETYPE}"
-fi
+# if [[ "${PREVIEW_IMAGE_ENABLED}" -eq 1 ]]; then
+# 	handle_image "${MIMETYPE}"
+# fi
 
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 handle_extension

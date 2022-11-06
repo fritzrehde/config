@@ -37,7 +37,7 @@ window {
 
 mainbox {
   background-color: @bg-inputbar;
-  padding: 2 0 0 0;
+  // padding: 2 0 0 0;
   children: [inputbar, listview];
 }
 
@@ -48,11 +48,11 @@ inputbar {
 prompt {
   text-color: @fg-prompt;
   background-color: @bg-prompt;
-  padding: 0 5 1 5;
+  padding: 2 5 1 5;
 }
 
 entry {
-  padding: 0 0 0 5;
+  padding: 2 0 1 5;
 }
 
 listview {
@@ -64,7 +64,7 @@ listview {
 
 element {
   text-color: @fg-selected;
-  padding: 1 5 0 5;
+  padding: 2 0 1 5;
 }
 
 element selected {
