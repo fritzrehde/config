@@ -1,0 +1,7 @@
+command = "gdrive.sh list"
+interval = 1.0
+
+[keybindings]
+"x" = "gdrive.sh delete"
+"l" = "gdrive.sh download &"
+"p" = "gdrive.sh upload &"
