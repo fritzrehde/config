@@ -14,7 +14,7 @@ Name | Description | Config files
 [bspwm](https://github.com/baskerville/bspwm) | tiling window manager | [`bspwmrc`](../config/bspwm/bspwmrc)
 [sxhkd](https://github.com/baskerville/sxhkd) | keybinding daemon | [`sxhkdrc`](../config/sxhkd/sxhkdrc)
 [qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser | [`qutebrowser/config.py`](../config/qutebrowser/config.py)
-[dunst](https://github.com/dunst-project/dunst) | notification daemon | [`dunstrc`](../config/dunst/dunstrc)
+[dunst](https://github.com/dunst-project/dunst) | notification daemon | [`dunstrc`](../config/dunst/dunstrc-dark)
 [kitty](https://github.com/kovidgoyal/kitty) | terminal | [`kitty.conf`](../config/kitty/kitty.conf)
 [zsh](https://www.zsh.org/) | shell | [`.zshrc`](../.zshrc) [`profile`](../config/shell/profile)
 

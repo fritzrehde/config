@@ -7,8 +7,8 @@ case "$1" in
 		FILES=$(fd -t f . $SEARCH_PATH | sed 's/\/home\/fritz\/dotfiles\/config\///')
 		;;
 	scripts)
-		SEARCH_PATH=~/.local/bin
-		FILES=$(fd -t f . $SEARCH_PATH | sed 's/\/home\/fritz\/\.local\/bin\///')
+		SEARCH_PATH=~/dotfiles/scripts
+		FILES=$(fd -t f . $SEARCH_PATH | sed 's/\/home\/fritz\/dotfiles\/scripts\///')
 		;;
 	*)
 		CURRENT_PATH=$(tmux display-message -p '#{pane_current_path}')

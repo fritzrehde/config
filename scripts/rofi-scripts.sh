@@ -11,8 +11,7 @@ SCRIPTS=$(
 	download-clipboard
 	tum-live-download
 	lecturio-download
-	git-config
-	git-scripts
+	git-dotfiles
 	sys-info
 	time
 	color-picker
