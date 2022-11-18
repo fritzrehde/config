@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # unlink all config files
-fd --type file \
+fd --base-directory config --type file \
 	| xargs -I {} unlink ~/.config/{}
