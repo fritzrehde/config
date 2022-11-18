@@ -3,20 +3,20 @@
 
 ## Installation
 
-This configuration can be installed by linking the config files to the default config file locations for all apps.
-Use `./.install.sh` and `./.uninstall.sh` .
+This configuration is installed by linking the config files to the default config file locations for all apps.
+Use `install-config.sh` and `uninstall-config.sh` to install and uninstall all config files.
 
 ## Featured applications
 Name | Description | Config files
 :-- | :-- | :--
-[neovim](https://github.com/neovim/neovim) | text editor | [`nvim/`](../.config/nvim)
-[tmux](https://github.com/tmux/tmux) | terminal multiplexer | [`.tmux.conf`](../.tmux.conf)
-[bspwm](https://github.com/baskerville/bspwm) | tiling window manager | [`bspwmrc`](../.config/bspwm/bspwmrc)
-[sxhkd](https://github.com/baskerville/sxhkd) | keybinding daemon | [`sxhkdrc`](../.config/sxhkd/sxhkdrc)
-[qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser | [`qutebrowser/config.py`](../.config/qutebrowser/config.py)
-[dunst](https://github.com/dunst-project/dunst) | notification daemon | [`dunstrc`](../.config/dunst/dunstrc)
-[kitty](https://github.com/kovidgoyal/kitty) | terminal | [`kitty.conf`](../.config/kitty/kitty.conf)
-[zsh](https://www.zsh.org/) | shell | [`.zshrc`](../.zshrc) [`profile`](../.config/shell/profile)
+[neovim](https://github.com/neovim/neovim) | text editor | [`nvim/`](../config/nvim)
+[tmux](https://github.com/tmux/tmux) | terminal multiplexer | [`.tmux.conf`](../config/tmux/.tmux.conf)
+[bspwm](https://github.com/baskerville/bspwm) | tiling window manager | [`bspwmrc`](../config/bspwm/bspwmrc)
+[sxhkd](https://github.com/baskerville/sxhkd) | keybinding daemon | [`sxhkdrc`](../config/sxhkd/sxhkdrc)
+[qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser | [`qutebrowser/config.py`](../config/qutebrowser/config.py)
+[dunst](https://github.com/dunst-project/dunst) | notification daemon | [`dunstrc`](../config/dunst/dunstrc)
+[kitty](https://github.com/kovidgoyal/kitty) | terminal | [`kitty.conf`](../config/kitty/kitty.conf)
+[zsh](https://www.zsh.org/) | shell | [`.zshrc`](../.zshrc) [`profile`](../config/shell/profile)
 
 ## Some other cool tools I use
 Name | Description
