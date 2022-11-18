@@ -23,9 +23,9 @@ filetype on
 
 " Tabs
 set tabstop=2
-set softtabstop=0
-set noexpandtab
-set shiftwidth=2
+" set softtabstop=0
+" set noexpandtab
+" set shiftwidth=2
 set autoindent
 set listchars=tab:│\ 
 
@@ -104,13 +104,10 @@ endfunction
 "=== Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neovim/nvim-lspconfig'
-
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-
 Plug 'tpope/vim-commentary'
 autocmd FileType c setlocal commentstring=\/\/\ %s
+
+Plug 'tpope/vim-sleuth'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 let g:indent_blankline_show_trailing_blankline_indent = v:false
@@ -119,4 +116,14 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
 
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
 call plug#end()
+
+
+" === Lua
+lua require('completion')

@@ -19,10 +19,10 @@ keymap = [
 	{ keys = [ "]" ], command = "parent_cursor_move_up" },
 
 	# rename
-	{ keys = [ "c" ], command = ":rename " },
+	{ keys = [ "c" ], command = "rename_keep_ext" },
 	{ keys = [ "a" ], command = "rename_append" },
 	{ keys = [ "i" ], command = "rename_prepend" },
-	{ keys = [ "C" ], command = "rename_keep_ext" },
+	{ keys = [ "C" ], command = ":rename " },
 
 	# selection
 	{ keys = [ " " ], command = "select --toggle=true" },
@@ -55,20 +55,20 @@ keymap = [
 	# { keys = [ "y", "p" ],command = "copy_filepath" },
 	# { keys = [ "y", "d" ],command = "copy_dirpath" },
 
-	{ keys = [ "p", "l" ],command = "symlink_files --relative=false" },
-	{ keys = [ "p", "L" ],command = "symlink_files --relative=true" },
+	# { keys = [ "p", "l" ],command = "symlink_files --relative=false" },
+	# { keys = [ "p", "L" ],command = "symlink_files --relative=true" },
 
-	{ keys = [ "delete" ], command = "delete_files --foreground=true" },
-	{ keys = [ "d", "D" ],command = "delete_files --foreground=true" },
+	# { keys = [ "delete" ], command = "delete_files --foreground=true" },
+	# { keys = [ "d", "D" ],command = "delete_files --foreground=true" },
 
 	# { keys = [ "p", "p" ],command = "paste_files" },
-	{ keys = [ "p", "o" ],command = "paste_files --overwrite=true" },
+	# { keys = [ "p", "o" ],command = "paste_files --overwrite=true" },
 
-	{ keys = [ "f", "t" ],command = ":touch " },
+	# { keys = [ "f", "t" ],command = ":touch " },
 
-	{ keys = [ "w" ], command = "show_tasks --exit-key=w" },
-	{ keys = [ "b", "b" ],command = "bulk_rename" },
-	{ keys = [ "=" ], command = "set_mode" },
+	# { keys = [ "w" ], command = "show_tasks --exit-key=w" },
+	# { keys = [ "b", "b" ],command = "bulk_rename" },
+	# { keys = [ "=" ], command = "set_mode" },
 
 	{ keys = [ ":" ], command = ":" },
 	{ keys = [ ";" ], command = ":" },
@@ -80,7 +80,7 @@ keymap = [
 	{ keys = [ "|" ], command = ":search_inc " },
 	{ keys = [ "\\" ], command = ":search_glob " },
 	{ keys = [ "S" ], command = "search_fzf" },
-	{ keys = [ "C" ], command = "subdir_fzf" },
+	# { keys = [ "C" ], command = "subdir_fzf" },
 
 	{ keys = [ "s", "r" ],command = "sort reverse" },
 	{ keys = [ "s", "l" ],command = "sort lexical" },
