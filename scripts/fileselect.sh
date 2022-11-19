@@ -7,4 +7,5 @@ kitty --class floating_tall sh -c \
 	"fd --no-ignore --type file --absolute-path | fzf.sh $FZF_ARGS > $TMP"
 STDOUT="$(cat "$TMP")"
 rm -f "$TMP"
-echo "$STDOUT"
+[ -n "$STDOUT" ] \
+	&& echo "$STDOUT"
