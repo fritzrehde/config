@@ -1,11 +1,13 @@
 #!/bin/sh
 
-WID=$(xdo id)
 PDF="$1"
 CONFIG="$2"
+START_DESKTOP=$(bspc query --desktops --desktop focused --names)
 
-xdo close "$WID"
-case $3 in
+xdo close "$(xdo id)"
+
+bspc rule -a Zathura --one-shot desktop="$START_DESKTOP"
+case "$3" in
 	normal)
 		zathura -c ~/.config/$CONFIG "$PDF" &
 		;;

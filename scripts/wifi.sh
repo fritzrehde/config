@@ -23,6 +23,6 @@ case "$1" in
 			&& notify-send "Disconnected \"$SSID\""
 		;;
 	*)
-		watchbind -c ~/.local/bin/watchbind/wifi.toml
+		watchbind -c ~/dotfiles/config/watchbind/wifi.toml
 		;;
 esac
