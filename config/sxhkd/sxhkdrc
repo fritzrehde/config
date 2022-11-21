@@ -61,7 +61,7 @@ alt + Escape
 
 # todo list
 alt + t
-	st -c floating_tall -e todo-do.sh
+	kitty --class floating_tall todo-do.sh
 
 # todo add
 alt + n

@@ -1,19 +1,30 @@
 #!/bin/sh
 
 send_notification() {
-	VOLUME=$(pamixer --get-volume)
-	notify-send "Volume: ${VOLUME}%" -a "ignorehistory" -u low -t 1000 -r 9999 -h int:value:"$VOLUME"
+	notify-send "Volume: ${vol}%" -a "ignorehistory" -u low -t 1000 -r 9999 -h int:value:"${vol}"
 }
+
+vol=$(pamixer --get-volume)
 
 case "$1" in
 	up)
+		if [ $(( $vol % 5 )) -eq 0 ]; then
+			vol=$(( $vol + 5 ))
+		else
+			vol=$(( ($vol + 4) / 5 * 5 ))
+		fi
+		pamixer --set-volume "$vol" --allow-boost
 		pamixer --unmute
-		pamixer --increase 5 --allow-boost
 		send_notification
 		;;
 	down)
+		if [ $(( $vol % 5 )) -eq 0 ]; then
+			vol=$(( $vol - 5 ))
+		else
+			vol=$(( $vol / 5 * 5 ))
+		fi
+		pamixer --set-volume "$vol" --allow-boost
 		pamixer --unmute
-		pamixer --decrease 5 --allow-boost
 		send_notification
 		;;
 	mute)

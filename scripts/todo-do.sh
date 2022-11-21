@@ -20,5 +20,5 @@ FZF_OPTS=$(
 )
 
 todo.sh -P ls \
-	| fzf "$FZF_OPTS" -e --ansi --with-nth=2.. \
+	| fzf.sh "$FZF_OPTS" -e --ansi --with-nth=2.. \
 	| awk '{print $1}' | tr '\n' ' ' | xargs -I % todo.sh -fnA do %
