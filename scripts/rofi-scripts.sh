@@ -20,6 +20,7 @@ SCRIPTS=$(
 	pacman-update
 	change-theme
 	do-not-disturb
+	new-script
 	window-name
 	END
 )

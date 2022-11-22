@@ -4,6 +4,11 @@ send_notification() {
 	notify-send "Volume: ${vol}%" -a "ignorehistory" -u low -t 1000 -r 9999 -h int:value:"${vol}"
 }
 
+set_volume() {
+	pamixer --unmute --set-volume "$vol" --allow-boost
+	send_notification
+}
+
 vol=$(pamixer --get-volume)
 
 case "$1" in
@@ -13,9 +18,7 @@ case "$1" in
 		else
 			vol=$(( ($vol + 4) / 5 * 5 ))
 		fi
-		pamixer --set-volume "$vol" --allow-boost
-		pamixer --unmute
-		send_notification
+		set_volume
 		;;
 	down)
 		if [ $(( $vol % 5 )) -eq 0 ]; then
@@ -23,9 +26,7 @@ case "$1" in
 		else
 			vol=$(( $vol / 5 * 5 ))
 		fi
-		pamixer --set-volume "$vol" --allow-boost
-		pamixer --unmute
-		send_notification
+		set_volume
 		;;
 	mute)
 		pamixer --toggle-mute

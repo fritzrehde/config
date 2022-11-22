@@ -2,12 +2,12 @@
 
 # create new shell script
 
-if [ -z "$1" ]; then
-	echo "Usage: $(basename $0) <NAME>"
-	exit 1
-fi
+SCRIPTS=~/dotfiles/scripts
+FILENAME="$(rofi.sh top -p "name")" || exit 1
+FILE=$SCRIPTS/$FILENAME.sh
+LINK_TO=~/.local/bin/$FILENAME.sh
 
-FILE=~/.local/bin/$1.sh
 printf "#!/bin/sh\n\n\n" > "$FILE"
 chmod +x "$FILE"
-nvim + $FILE
+ln -fs "$FILE" "$LINK_TO"
+nvim + "$FILE"
