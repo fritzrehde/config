@@ -18,24 +18,31 @@ download() {
 	DIR=~/Downloads/videos/$SUBJECT
 	mkdir -p $DIR
 
-	# check if file has already been downloaded
-	downloads_exist() {
+	# assumption: filename and url don't contain spaces
+	LECTURES=$(
 		yt-dlp \
 			-u "$USERNAME" -p "$PASSWORD" \
 			-o "$DIR/%(title)s.%(ext)s" \
-			--print "%(filename)s" \
-			"$URL" \
-			| xargs -I {} ls "{}" > /dev/null 2>&1
-	}
+			--print "%(filename)s %(webpage_url)s" \
+			"$URL"
+	)
+	LECTURE_NAMES="$(echo "$LECTURES" | cut -d " " -f 1)"
 
-	if downloads_exist; then
+	# check if files (from stdin) have already been downloaded
+	if echo "$LECTURE_NAMES" | xargs -I {} ls "{}" > /dev/null 2>&1; then
 		notify-send "Up to date" "$SUBJECT" -t 0
 	else
-		yt-dlp.sh \
-			-u "$USERNAME" -p "$PASSWORD" \
-			-o "$DIR/%(title)s.%(ext)s" \
-			--embed-metadata \
-			"$URL"
+		echo "$LECTURE_NAMES" | while read LECTURE_NAME; do
+			if [ ! -f "$LECTURE_NAME" ]; then
+				LECTURE_URL="$(echo "$LECTURES" | grep "$LECTURE_NAME" | cut -d " " -f 2)"
+				yt-dlp.sh \
+					--notify-title "$SUBJECT" \
+					-u "$USERNAME" -p "$PASSWORD" \
+					-o "$LECTURE_NAME" \
+					--embed-metadata \
+					"$LECTURE_URL" &
+			fi
+		done
 	fi
 }
 

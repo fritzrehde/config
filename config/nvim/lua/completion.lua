@@ -55,7 +55,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- local servers = { 'rust_analyzer', 'clangd', 'jdtls' }
-local servers = { 'rust_analyzer', 'clangd' }
+local servers = { 'clangd' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {

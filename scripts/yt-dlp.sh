@@ -3,7 +3,16 @@
 # download video and display download progress bar using notifications
 
 ID="$(notify-id.sh lock)"
+# custom title from parent shell
+if [ "$1" = "--notify-title" ]; then
+	PRE_TITLE="$2"
+	shift
+	shift
+fi
 TITLE="$(yt-dlp --quiet --simulate --print title "$@")"
+[ -n "$PRE_TITLE" ] \
+	&& TITLE="${PRE_TITLE}\n${TITLE}"
+
 IFS=',' # delimiter for read
 
 stdbuf -oL yt-dlp \
