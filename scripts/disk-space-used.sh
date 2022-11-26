@@ -1,3 +1,3 @@
 #!/bin/sh
 
-printf "%.f" "$(df | grep "/home" | awk '{ print $3/1000000 }')"
+df "/home" --output=pcent | tail -n 1 | tr -dc '0-9'

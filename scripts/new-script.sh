@@ -4,10 +4,16 @@
 
 SCRIPTS=~/dotfiles/scripts
 FILENAME="$(rofi.sh top -p "name")" || exit 1
-FILE=$SCRIPTS/$FILENAME.sh
-LINK_TO=~/.local/bin/$FILENAME.sh
 
-printf "#!/bin/sh\n\n\n" > "$FILE"
+# create file
+FILE=$SCRIPTS/$FILENAME.sh
+touch "$FILE"
 chmod +x "$FILE"
+
+# link file
+LINK_TO=~/.local/bin/$FILENAME.sh
 ln -fs "$FILE" "$LINK_TO"
+
+# edit file
+printf "#!/bin/sh\n\n\n" > "$FILE"
 nvim + "$FILE"

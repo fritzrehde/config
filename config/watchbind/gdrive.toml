@@ -5,3 +5,4 @@ interval = 1.0
 "x" = "gdrive.sh delete+reload"
 "l" = "gdrive.sh download &"
 "p" = "gdrive.sh upload &"
+"u" = "gdrive.sh space-used &"

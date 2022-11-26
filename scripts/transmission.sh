@@ -35,6 +35,6 @@ case "$1" in
 		transmission-remote --torrent "$(torrent_id)" --remove-and-delete
 		;;
 	*)
-		watchbind -c ~/.local/bin/watchbind/transmission.toml
+		watchbind -c ~/dotfiles/config/watchbind/transmission.toml
 		;;
 esac

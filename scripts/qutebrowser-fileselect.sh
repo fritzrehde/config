@@ -17,6 +17,6 @@ case "$1" in
 		;;
 esac
 
-CMD="fd --no-ignore --type $TYPE --absolute-path | fzf.sh $FZF_ARGS > $2"
+CMD="fd --no-ignore --type $TYPE --absolute-path | fzf.sh -d "/" --with-nth 4.. $FZF_ARGS > $2"
 # st -c floating_tall -e sh -c "$CMD"
 kitty --class floating_tall sh -c "$CMD"

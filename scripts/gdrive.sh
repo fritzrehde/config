@@ -1,17 +1,10 @@
 #!/bin/sh
 
-line_empty() {
-	if [ -z "$LINE" ]; then
-		echo "\$LINE is empty"
-		exit 1
-	fi
-}
-
 file_id() {
 	echo "$LINE" | awk '{ print $1 }' FS="   "
 }
 
-upload_file() {
+upload() {
 	FILE="$1"
 	ID="$(notify-id.sh lock)"
 	TITLE="$(basename "$FILE")"
@@ -33,22 +26,34 @@ case "$1" in
 		gdrive list --no-header --name-width 0 --order name --max 500 \
 			| grep bin \
 			| sed 's/   */,/g' \
-			| awk '{ print $1, $2, $4 }' FS="," OFS="," \
+			| cut -f 1,2,4 -d "," --output-delimiter "," \
 			| column -t -s "," -o "   "
 		;;
 	delete)
-		# TODO: exit on empty line
-		line_empty || exit 1
+		[-z "$LINE" ] && exit 0
 		gdrive delete "$(file_id)"
 		;;
 	download)
-		line_empty
+		[-z "$LINE" ] && exit 0
 		gdrive download "$(file_id)"
 		;;
 	upload)
 		fileselect.sh | while read FILE; do
-			upload_file "$FILE" &
+			upload "$FILE" &
 		done
+		;;
+	space-used)
+		BYTES_SUM=$(
+			gdrive list --no-header --name-width 0 --order name --max 500 --bytes \
+				| grep bin \
+				| sed 's/   */,/g' \
+				| cut -d "," -f 4 --output-delimiter "," \
+				| tr -dc '0-9,\n' \
+				| tr '\n' '+'
+		)
+		# "...+0"
+		SPACE_USED="$(echo "${BYTES_SUM}0" | bc | numfmt --to=si --format="%.2f")"
+		notify-send "gdrive: space used" "$SPACE_USED"
 		;;
 	*)
 		watchbind --config-file ~/dotfiles/config/watchbind/gdrive.toml

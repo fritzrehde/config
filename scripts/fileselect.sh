@@ -4,8 +4,7 @@
 
 TMP="$(mktemp --dry-run "/tmp/XXXXXX")"
 kitty --class floating_tall sh -c \
-	"fd --no-ignore --type file --absolute-path | fzf.sh $FZF_ARGS > $TMP"
+	"fd --no-ignore --type file --type directory --absolute-path | fzf.sh -d "/" --with-nth 4.. > $TMP"
 STDOUT="$(cat "$TMP")"
 rm -f "$TMP"
-[ -n "$STDOUT" ] \
-	&& echo "$STDOUT"
+[ -n "$STDOUT" ] && echo "$STDOUT"
