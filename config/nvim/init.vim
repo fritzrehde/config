@@ -27,6 +27,8 @@ set tabstop=2
 " set noexpandtab
 " set shiftwidth=2
 set autoindent
+set smartindent
+" set cindent
 set listchars=tab:│\ 
 
 " Search

@@ -23,4 +23,4 @@ bspc rule -a Zathura state=tiled focus=on desktop=any.!occupied
 bspc rule -a discord desktop=any.!occupied
 bspc rule -a mpv desktop=any.!occupied
 bspc rule -a Slack desktop=any.!occupied
-bspc rule -a IntelliJ desktop=any.!occupied
+# bspc rule -a jetbrains-idea-ce desktop=any.!occupied
