@@ -8,8 +8,8 @@ export BROWSER="qutebrowser"
 export SXHKD_SHELL=/bin/sh
 
 # clipmenu
-export CM_LAUNCHER=rofi
-export CM_OUPUT_CLIP=0
+# export CM_LAUNCHER=rofi
+# export CM_OUPUT_CLIP=0
 
 # fzf
 source ~/.config/fzf/config.sh

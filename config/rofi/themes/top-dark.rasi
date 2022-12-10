@@ -8,9 +8,11 @@ configuration {
 * {
   white: #d8dee9;
   black: #000000;
+  lightgrey: #787C8F;
   grey: #2e3440;
   blue: #81a1c1;
   yellow: #ebcb8b;
+  green: #AEC694;
 
   fg: @white;
   bg: @black;
@@ -18,9 +20,10 @@ configuration {
   bg-inputbar: @black;
 
   fg-prompt: @grey;
-  bg-prompt: @yellow;
+  bg-prompt: @green;
 
   fg-selected: @white;
+  fg-unselected: @lightgrey;
   bg-selected: @blue;
 
   text-color: @fg;
@@ -65,12 +68,12 @@ listview {
 }
 
 element {
-  text-color: @fg-selected;
+  text-color: @fg-unselected;
   padding: 2 0 1 5;
 }
 
 element selected {
-  text-color: @fg;
+  text-color: @fg-selected;
   background-color: @bg-selected;
 }
 

@@ -10,4 +10,4 @@ case "$1" in
 		;;
 esac
 
-rofi $@ -dmenu -theme "~/.config/rofi/themes/$MODE.rasi"
+rofi $@ -dmenu -theme "~/.config/rofi/themes/$MODE.rasi" -i

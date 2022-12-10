@@ -2,6 +2,6 @@ command = "wifi.sh list"
 interval = 1.0
 
 [keybindings]
-"l" = "wifi.sh connect + reload"
-"enter" = "wifi.sh connect + reload"
-"h" = "wifi.sh disconnect + reload"
+"l" = [ "wifi.sh connect", "reload" ]
+"enter" = [ "wifi.sh connect", "reload" ]
+"h" = [ "wifi.sh disconnect", "reload" ]

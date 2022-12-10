@@ -53,7 +53,7 @@ alt + s
 
 # rofi clipmenu
 alt + p
-	clipmenu -theme ~/.config/rofi/themes/top-$(theme.sh).rasi -p copy
+	clipmenu.sh
 
 # rofi power
 alt + Escape

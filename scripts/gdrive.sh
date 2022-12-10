@@ -38,7 +38,7 @@ case "$1" in
 		gdrive download "$(file_id)"
 		;;
 	upload)
-		fileselect.sh | while read FILE; do
+		fileselect.sh "-e mp4 -e mkv -e webm" | while read FILE; do
 			upload "$FILE" &
 		done
 		;;

@@ -1,6 +1,10 @@
 #!/bin/sh
 
 case $1 in
+	icon)
+		nordvpn status | grep -q "Status: Connected" \
+			&& printf "ﱾ"
+		;;
 	toggle|t)
 		if nordvpn status | grep -q "Connected"; then
 			vpn.sh disconnect

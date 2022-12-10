@@ -15,5 +15,4 @@ LINK_TO=~/.local/bin/$FILENAME.sh
 ln -fs "$FILE" "$LINK_TO"
 
 # edit file
-printf "#!/bin/sh\n\n\n" > "$FILE"
-nvim + "$FILE"
+printf "#!/bin/sh\n" > "$FILE"
