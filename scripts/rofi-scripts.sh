@@ -22,6 +22,7 @@ SCRIPTS=$(
 	do-not-disturb
 	new-script
 	window-name
+	rofi-pass
 	END
 )
 
