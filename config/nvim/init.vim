@@ -15,6 +15,7 @@ set scrolloff=2
 set splitbelow splitright
 set nostartofline
 set backspace=indent,eol,start
+set autoread
 
 " General
 set clipboard=unnamedplus
@@ -40,7 +41,7 @@ set guicursor=i:ver90
 set mouse=a
 set cursorline
 set colorcolumn=99999 " bug fix for indent-blankline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto comment in next line
+au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto comment in next line
 
 " Bell
 set noerrorbells
@@ -52,8 +53,8 @@ let g:nord_cursor_line_number_background=1
 " recommended styles
 let g:rust_recommended_style=0
 
-autocmd BufNewFile,BufRead *.cron :set filetype=crontab
-" autocmd BufWritePost *.tex !make
+au BufNewFile,BufRead *.cron :set filetype=crontab
+" au BufWritePost *.tex !make
 
 
 "=== Keybindings
@@ -107,7 +108,7 @@ endfunction
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'tpope/vim-commentary'
-autocmd FileType c setlocal commentstring=\/\/\ %s
+au FileType c setlocal commentstring=\/\/\ %s
 
 Plug 'tpope/vim-sleuth'
 
@@ -129,3 +130,9 @@ call plug#end()
 
 " === Lua
 lua require('completion')
+
+
+" === IDE-like behaviour
+
+" Rust
+au BufWritePost *.rs :silent !rustfmt %

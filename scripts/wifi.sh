@@ -6,7 +6,7 @@ case "$1" in
 			| column -t -s ":" -o "  "
 		;;
 	connect)
-		SSID="$(echo "$LINE" | awk '{ print $1 }' FS="  ")"
+		SSID="$(echo "$LINES" | awk '{ print $1 }' FS="  ")"
 		if nmcli connection up "$SSID"; then
 			notify-send "Connected \"$SSID\""
 		else
@@ -18,7 +18,7 @@ case "$1" in
 		fi
 		;;
 	disconnect)
-		SSID="$(echo "$LINE" | awk '{ print $1 }' FS="  ")"
+		SSID="$(echo "$LINES" | awk '{ print $1 }' FS="  ")"
 		nmcli connection down "$SSID" \
 			&& notify-send "Disconnected \"$SSID\""
 		;;

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-file_id() {
-	echo "$LINE" | awk '{ print $1 }' FS="   "
+file_ids() {
+	echo "$LINES" | awk '{ print $1 }' FS="   "
 }
 
 upload() {
@@ -30,12 +30,10 @@ case "$1" in
 			| column -t -s "," -o "   "
 		;;
 	delete)
-		[-z "$LINE" ] && exit 0
-		gdrive delete "$(file_id)"
+		file_ids | xargs -I {} gdrive delete "{}"
 		;;
 	download)
-		[-z "$LINE" ] && exit 0
-		gdrive download "$(file_id)"
+		file_ids | xargs -I {} gdrive download "{}"
 		;;
 	upload)
 		fileselect.sh "-e mp4 -e mkv -e webm" | while read FILE; do

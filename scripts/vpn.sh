@@ -1,6 +1,11 @@
 #!/bin/sh
 
-case $1 in
+if ! nordvpn account > /dev/null; then
+	TOKEN="$(pass nordvpn.com/token)"
+	nordvpn login --token "$TOKEN"
+fi
+
+case "$1" in
 	icon)
 		nordvpn status | grep -q "Status: Connected" \
 			&& printf "ﱾ"

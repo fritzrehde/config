@@ -31,16 +31,16 @@ alt + q
 alt + Tab
 	bspc node --focus next.local.window
 
-# switch position of two split windows
-alt + {Left,Right}
-	bspc node --swap next.local.window --follow
+# focus the node in the given direction
+alt + {_,shift + }{h,j,k,l}
+	bspc node {--focus,--swap} {west,south,north,east}
 
 # adjust window width
-alt + {h,l}
+alt + {Left,Right}
 	{bspc node -z right -20 0; bspc node -z left -20 0, bspc node -z right 20 0; bspc node -z left 20 0}
 
 # adjust window height
-alt + {j,k}
+alt + {Down,Up}
 	{bspc node -z bottom 0 20; bspc node -z top 0 20, bspc node -z bottom 0 -20; bspc node -z top 0 -20}
 
 # rofi apps
@@ -168,10 +168,6 @@ super + a ; Escape
 #
 # focus/swap
 #
-
-# focus the node in the given direction
-# super + {_,shift + }{h,j,k,l}
-	# bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}

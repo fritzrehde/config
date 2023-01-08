@@ -6,7 +6,6 @@ COURSES=$(
 	cat <<-END
 	economics-i-wi000021_e-bsc-english-track-ws-2223.kurs
 	economics-i-exercise-wi000021_e-ws-2223.kurs
-	financial-accounting-wi001059_e-bsc-engl-track-ws-2223.kurs
 	END
 )
 
