@@ -1,9 +1,11 @@
 #!/bin/sh
 
-if ! nordvpn account > /dev/null; then
-	TOKEN="$(pass nordvpn.com/token)"
-	nordvpn login --token "$TOKEN"
-fi
+login() {
+	if ! nordvpn account > /dev/null; then
+		TOKEN="$(pass nordvpn.com/token)"
+		nordvpn login --token "$TOKEN"
+	fi
+}
 
 case "$1" in
 	icon)
@@ -18,6 +20,7 @@ case "$1" in
 		fi
 		;;
 	connect|c)
+		login
 		nordvpn connect && polybar-reload.sh vpn
 		;;
 	disconnect|d)

@@ -1,0 +1,11 @@
+command = "torrent.sh list"
+interval = 1
+field-seperator = ","
+
+[keybindings]
+"p" = [ "torrent.sh add", "reload" ]
+"f" = [ "torrent.sh file", "reload", "unselect" ]
+"l" = [ "torrent.sh start", "reload", "unselect" ]
+"h" = [ "torrent.sh stop", "reload", "unselect" ]
+"x" = [ "torrent.sh remove", "reload", "unselect" ]
+"X" = [ "torrent.sh delete", "reload", "unselect" ]

@@ -11,7 +11,7 @@ case "$1" in
 		sudo pacman -Sc
 		;;
 	*)
-		echo "Usage: $(basename $0) [delete-cache]" 1>&2
+		echo "Usage: $(basename $0) [list|delete-cache]" 1>&2
 		exit 1
 		;;
 esac

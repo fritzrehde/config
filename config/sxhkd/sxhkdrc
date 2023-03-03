@@ -32,15 +32,19 @@ alt + Tab
 	bspc node --focus next.local.window
 
 # focus the node in the given direction
-alt + {_,shift + }{h,j,k,l}
-	bspc node {--focus,--swap} {west,south,north,east}
+alt + shift + {h,j,k,l}
+	bspc node --focus {west,south,north,east}
+
+# swap the node in the given direction
+alt + {Left,Down,Up,Right}
+	bspc node --swap {west,south,north,east}
 
 # adjust window width
-alt + {Left,Right}
+alt + {h,l}
 	{bspc node -z right -20 0; bspc node -z left -20 0, bspc node -z right 20 0; bspc node -z left 20 0}
 
 # adjust window height
-alt + {Down,Up}
+alt + {j,k}
 	{bspc node -z bottom 0 20; bspc node -z top 0 20, bspc node -z bottom 0 -20; bspc node -z top 0 -20}
 
 # rofi apps

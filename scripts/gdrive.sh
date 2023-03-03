@@ -16,7 +16,7 @@ upload() {
 		| stdbuf -i0 -oL numfmt -d "," --field=- --from=auto \
 		| stdbuf -i0 -oL awk '{ printf "%02d,%.1f MB/s,%d MB\n", $1*100/$2, $3/1000000, $2/1000000 }' FS="," \
 		| while read PERC SPEED SIZE; do 
-		notify-send "Download ${PERC}% at ${SPEED} of ${SIZE}" "$TITLE" -r "$ID" -h "int:value:${PERC}" -t 0
+		notify-send "Upload ${PERC}% at ${SPEED} of ${SIZE}" "$TITLE" -r "$ID" -h "int:value:${PERC}" -t 0
 	done
 	notify-id.sh unlock "$ID"
 }
@@ -30,9 +30,11 @@ case "$1" in
 			| column -t -s "," -o "   "
 		;;
 	delete)
-		file_ids | xargs -I {} gdrive delete "{}"
+		# file_ids | parallel 'gdrive3 files delete "{}"'
+		file_ids | parallel 'gdrive delete "{}"'
 		;;
 	download)
+		# TODO: do in parallel or all at once!
 		file_ids | xargs -I {} gdrive download "{}"
 		;;
 	upload)
