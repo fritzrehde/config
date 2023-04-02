@@ -4,8 +4,7 @@
 
 COURSES=$(
 	cat <<-END
-	economics-i-wi000021_e-bsc-english-track-ws-2223.kurs
-	economics-i-exercise-wi000021_e-ws-2223.kurs
+	economics-ii-wi000023_e-macroeconomics-ss-2022.kurs
 	END
 )
 

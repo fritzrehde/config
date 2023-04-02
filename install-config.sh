@@ -16,6 +16,3 @@ fd --base-directory config --type file \
 # manually link xinitrc and zshrc
 ln -fs ~/.config/xorg/xinitrc ~/.xinitrc
 ln -fs ~/.config/zsh/zshrc ~/.zshrc
-
-# link theme specific files
-change-theme.sh reload

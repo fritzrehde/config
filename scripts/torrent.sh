@@ -1,6 +1,6 @@
 #!/bin/sh
 
-torrent_ids () {
+torrent_ids() {
 	echo "$LINES" \
 		| cut -d "," -f 1 \
 		| xargs | tr ' ' ',' | tr -d '\n'
@@ -18,13 +18,15 @@ case "$1" in
 
 		echo "ID,STATUS,BAR,PERC,DOWN,UP,NAME"
 		transmission-remote --json --list \
-			| jq -r '.arguments.torrents[] | "\(.id),\(.eta),\(.leftUntilDone),\(.sizeWhenDone),\(.rateDownload),\(.rateUpload),\(.name),\(.status)"' \
-			| while read id eta size_left total download upload name status; do 
-					percentage="$(echo "((${total} - ${size_left}) * 100) / ${total}" | bc)";
-					progress_bar="$(asciibar --length=8 --border="|" ${percentage})"
+			| jq -r '.arguments.torrents[] | "\(.id),\(.name),\(.eta),\(.leftUntilDone),\(.sizeWhenDone),\(.rateDownload),\(.rateUpload),\(.status)"' \
+			| while read id name eta size_left size_total download upload status; do 
+					percentage="$(echo "((${size_total} - ${size_left}) * 100) / ${size_total}" | bc 2> /dev/null)"
+					[ -z "$percentage" ] && percentage=0
+					progress_bar="$(asciibar --min 0 --max 100 --length=8 --border="|" ${percentage})"
 					# TODO: improve fixed float calculation (allow dynamic unit depending on speed through explizit tool)
 					download="$(echo "$download" | awk '{ printf("%.1f", $1/1000000) }')"
 					upload="$(echo "$upload" | awk '{ printf "%.1f", $1/1000 }')"
+					# TODO: match status
 					printf "%d,%1d,%s,%-3d%%,%s MB/s,%s KB/s,%s\n" "$id" "$status" "$progress_bar" "$percentage" "$download" "$upload" "$name"
 			done
 		;;
@@ -50,6 +52,6 @@ case "$1" in
 		transmission-remote --torrent "$ID" --get "$FILE_INDEX"
 		;;
 	*)
-		watchbind -c ~/dotfiles/config/watchbind/torrent.toml
+		watchbind --config-file ~/dotfiles/config/watchbind/torrent.toml
 		;;
 esac

@@ -6,6 +6,7 @@ btctl() {
 	# use usb bluetooth controller instead of default
 	ARGS="$*"
 	printf "select ${BT_USB_CONTROLLER}\n${ARGS}\n" | bluetoothctl
+	# bluetoothctl -- "select ${BT_USB_CONTROLLER}\n${ARGS}\n"
 }
 connected() {
 	btctl info "$BT_HEADPHONES" | grep -q "Connected: yes"
